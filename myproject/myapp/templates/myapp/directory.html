@@ -4,7 +4,7 @@
   <link rel="stylesheet" href="{% static 'style.css' %}" />
 
 <div class="app-name-container">
-  <h1 class="app-name">A.C.E.D.</h1>
+  <img width="300px" src="{% static 'logo-final-final.png' %}"/>
 </div>
 <div class="add-name">
   <h3 class="member-name">Welcome {{ request.session.firstname }} {{ request.session.lastname }}!</h3>
@@ -24,29 +24,29 @@
   </nav>
 <body>
   {% if request.session.member_id != none %}
-  <div class="dir-page">
-    <center>
-      {% if Error %}
-  <div class="error-msg">
-    <div class="title-container-error">
-      <h2 class="error-title">Error</h2>
-    </div>
-    <div class="desc-container">
-      <span class="error-desc">{{Error}}</span>
-    </div>
-  </div>
-  {% endif %}
+    <div class="dir-page">
+      <center>
+    {% if Error %}
+      <div class="error-msg">
+        <div class="title-container-error">
+          <h2 class="error-title">Error</h2>
+        </div>
+        <div class="desc-container">
+          <span class="error-desc">{{Error}}</span>
+        </div>
+      </div>
+    {% endif %}
 
-  {% if Success %}
-  <div class="succ-msg">
-    <div class="title-container-succ">
-      <h2 class="succ-title">Success</h2>
-    </div>
-    <div class="desc-container">
-      <span class="succ-desc">{{Success}}</span>
-    </div>
-  </div>
-  {% endif %}
+    {% if Success %}
+      <div class="succ-msg">
+        <div class="title-container-succ">
+          <h2 class="succ-title">Success</h2>
+        </div>
+        <div class="desc-container">
+          <span class="succ-desc">{{Success}}</span>
+        </div>
+      </div>
+    {% endif %}
   <br>
   <h2 class="page-titles" id="dir-title">Directory</h2>
 </center>
