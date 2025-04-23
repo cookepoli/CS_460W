@@ -49,6 +49,7 @@
   {% endif %}
 
   {% if request.session.member_id == 1 or request.session.member_id == 2 %}
+  <br>
   <h2 class="page-titles">Admin Dashboard</h2>
   <div class="group-content">
     <div class="title-container">
@@ -69,6 +70,7 @@
   </div>
   {% endif %}
   {% else %}
+  <br>
 <h2 class="page-titles">My Account</h2>
 
 <form method="post">

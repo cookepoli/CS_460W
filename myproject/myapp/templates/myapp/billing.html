@@ -61,6 +61,7 @@
 
 <div class="billing-body">
   {% elif request.session.member_id == 1 or request.session.member_id == 2 %}
+  <br>
   <h2 class="page-titles">Billing Menu</h2>
   <div class="side-by-side">
   <div class="group-content" id="billing-group-content">
@@ -191,6 +192,7 @@
     {% endif %}
     </div>
   {% else %}
+  <br>
   <h2 class="page-titles">Billing Menu</h2>
     <form method = "post">
       {% csrf_token %}
