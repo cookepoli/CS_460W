@@ -15,7 +15,7 @@ class Authenticator:
             for i in range(len(members)):
                 name = members[i][1][0] + members[i][2][0:4]
                 if self.checkUsername(username, name) and members[i][3] == True:
-                    return members[i][0]
+                    return members[i][0], members[i][1], members[i][2]
 
             return False
 

@@ -55,10 +55,12 @@ def login_view(request):
         username = request.POST.get('username')
         password = request.POST.get('password')
         auth = Authenticator()
-        id = auth.login(username, password)
+        id, firstname, lastname = auth.login(username, password)
         print(id) #print debug
         if id != False:
             request.session['member_id'] = id
+            request.session['firstname'] = firstname
+            request.session['lastname'] = lastname
             return redirect('directory')  # Redirect to the search page on successful login
         else:
             return render(request, 'myapp/login.html', {'error': 'Invalid credentials. Please try again'})
