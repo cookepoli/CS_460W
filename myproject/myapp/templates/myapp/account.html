@@ -2,10 +2,13 @@
 <html>
 {% load static %}
   <link rel="stylesheet" href="{% static 'style.css' %}" />
-
+<div class="top-of-pg">
   <div class="app-name-container">
     <h1 class="app-name">A.C.E.D.</h1>
   </div>
+  <div class="add-name">
+    <h3 class="member-name">Welcome {{ request.session.firstname }} {{ request.session.lastname }}!</h3>
+</div>
     <nav class="navbar">
       <a href="../scheduler/" class="nav-elem">Court Scheduler</a>
       <a href="../billing/" class="nav-elem">Billing</a>
@@ -19,6 +22,7 @@
       </a>
       <a href="../logout/" class="nav-elem">Log Out</a>
     </nav>
+</div>
   {% if request.session.member_id != none %}
 <div class="acc-page">
 <center>
@@ -65,7 +69,8 @@
   </div>
   {% endif %}
   {% else %}
-<h2 class="page-titles">Your Account</h2>
+<h2 class="page-titles">My Account</h2>
+
 <form method="post">
   {% csrf_token %}
   <input class="submit-btn" id="fetch-btn" name="submittype" type="submit" value="Fetch Information">
@@ -112,6 +117,7 @@
       </form>
   </div>
 </div>
+<br>
 <div class="side-by-side">
 <div class="group-content">
   <div class="title-container">
@@ -168,6 +174,7 @@
       </span>
     </h4>
   </div> -->
+  <br>
   <div class="side-by-side">
     <div class="group-content">
       <div class="title-container">
@@ -201,6 +208,7 @@
   </div>
   </div>
 </div>
+<br>
 <div class="group-content">
   <div class="title-container">
   <h4 class="acc-labels">Change Password</h4>
@@ -215,6 +223,7 @@
       </center>
       </form>
 </div>
+<br>
   {% endif %}
 {% else %}
 <center>

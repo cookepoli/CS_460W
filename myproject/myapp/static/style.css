@@ -98,6 +98,17 @@ a {
   gap: 30px;
 }
 
+.add-name {
+  float: right;
+  margin-top: -60px;
+  margin-right: 10px;
+}
+
+.member-name {
+  color: white;
+  font-size: 18px;
+}
+
 .app-name-container {
   background-color: #5F935A;
   padding: 10px;
@@ -166,6 +177,22 @@ a {
   margin-left: auto;
   margin-right: auto;
 }
+
+/* .group-scheduler {
+  float: left;
+}
+
+.group-type {
+  float: left;
+} */
+
+/* #scheduler-align {
+  float: left;
+} */
+
+/* #group-delete {
+  float: right;
+} */
 
 #search-results {
   max-width: 100vw;

@@ -6,6 +6,9 @@
 <div class="app-name-container">
   <h1 class="app-name">A.C.E.D.</h1>
 </div>
+<div class="add-name">
+  <h3 class="member-name">Welcome {{ request.session.firstname }} {{ request.session.lastname }}!</h3>
+</div>
   <nav class="navbar">
     <a href="../scheduler/" class="nav-elem">Court Scheduler</a>
     <a href="../billing/" class="nav-elem">Billing</a>
