@@ -217,8 +217,8 @@
       <form method="post">
         {% csrf_token %}
         <center>
-        <input name = "pass" class="searchbar" type="searchbar" placeholder="Enter New Password">
-        <input name = "pass_verify" class="searchbar" type="searchbar" placeholder="Verify New Password">
+        <input name = "pass" class="searchbar" type="password" placeholder="Enter New Password" required>
+        <input name = "pass_verify" class="searchbar" type="password" placeholder="Verify New Password" required>
         <input name = "submittype" class="submit-btn" type="submit" value = "Change Password">
       </center>
       </form>
