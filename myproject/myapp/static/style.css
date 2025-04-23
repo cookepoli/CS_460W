@@ -318,6 +318,10 @@ a {
   border-radius: 7px;
 }
 
+.num-bold {
+  font-weight: bold;
+}
+
 #delete-res {
   padding: 20px;
 }
