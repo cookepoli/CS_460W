@@ -62,9 +62,9 @@
       <h3>Select Day:</h3>
     </div>
     <br>
-    <form method = "post" class="dropdown">
+    <form method = "post">
       {% csrf_token %}
-      <select name="day">
+      <select name="day" class="dd-list">
         <option class="day" value="6">Sunday</option>
         <option class="day" value="0">Monday</option>
         <option class="day" value="1">Tuesday</option>
@@ -103,7 +103,7 @@
     {% if request.session.type == 'singles' %}
       <form method="post">
         {% csrf_token %}
-        <select name="guests">
+        <select name="guests" class="dd-list">
           <option class="guests" value="0">0</option>
           <option class="guests" value="1">1</option>
         </select>
@@ -112,7 +112,7 @@
     {% elif request.session.type == 'doubles' %}
       <form method="post">
         {% csrf_token %}
-        <select name="guests">
+        <select name="guests" class="dd-list">
           <option class="guests" value="0">0</option>
           <option class="guests" value="1">1</option>
           <option class="guests" value="2">2</option>

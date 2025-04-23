@@ -89,6 +89,7 @@
   </div>
   <br>
   </div>
+  <br>
     {% if request.session.member_id == 2 %}
     <div class="side-by-side">
     <div class="group-content">
@@ -121,6 +122,7 @@
   </div>
   <br>
   </div>
+  <br>
   <div class="group-content">
     <div class="title-container">
       <h3>Modify Billing Policy</h3>
@@ -130,6 +132,7 @@
       {% csrf_token %}
       <input name="submittype" class="submit-btn" type="submit" value="Retrieve Current Billing Scheme">
     </form>
+    <br>
   {% if billing_scheme %}
   <table border="1" class="table-style">
     <tr>
