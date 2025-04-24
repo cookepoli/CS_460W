@@ -104,7 +104,7 @@
       <form method = "post">
         {% csrf_token %}
         <input name="charge_id" type="searchbar" class="searchbar" placeholder="Enter Charge ID" required>
-        <select name="attribute" required>
+        <select name="attribute" class="dd-list" required>
           <option class="attribute" value="amount">Amount</option>
           <option class="attribute" value="Description">Description</option>
           <option class="attribute" value="Type">Type</option>
@@ -148,17 +148,17 @@
       <td>{{billing_scheme.0.1}}</td>
     </tr>
   </table>
-</div>
   {% endif %}
   <form method="post">
     {% csrf_token %}
-    <select name="chargetype">
+    <select name="chargetype" class="dd-list">
       <option class="chargetype" value="guestfee">Guest Fee</option>
       <option class="chargetype" value="annualfee">Annual Fee</option>
     </select>
     <input name="value" class="searchbar" type="searchbar" placeholder="Enter Modified Value" required>
     <input name="submittype" class="submit-btn" type="submit" value="Modify Billing Scheme">
   </form>
+</div>
 
     {% endif %}
 

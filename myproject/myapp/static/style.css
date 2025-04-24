@@ -178,24 +178,22 @@ a {
   margin-right: auto;
 }
 
-/* .group-scheduler {
-  float: left;
-}
-
-.group-type {
-  float: left;
-} */
-
-/* #scheduler-align {
-  float: left;
-} */
-
-/* #group-delete {
-  float: right;
-} */
-
 #search-results {
   max-width: 100vw;
+}
+
+.group-content-dir {
+  padding:10px;
+  background-color: rgba(255,255,255,0.7);
+  width: fit-content;
+  min-width: 700px;
+  border: solid;
+  border-radius: 10px;
+  border-color: transparent;
+  /* margin-left: 50px; */
+  text-align: center;
+  margin-left: 31%;
+  margin-right: auto;
 }
 
 .title-container {
@@ -255,11 +253,6 @@ a {
   color: black;
   text-align: center;
 }
-
-/* .acc-labels {
-  text-align: left;
-  padding: 30px;
-} */
 
 .acc-result {
   font-size: 20px;
@@ -341,7 +334,6 @@ a {
 }
 
 .billing-body {
-  /* background-color: #5F935A; */
   border: solid;
   border-color: black;
   border-radius: 7px;
@@ -396,6 +388,7 @@ td[rowspan]:not(:last-child) {
 
 .dir-elem {
   padding: 15px;
+  width: fit-content;
   /* border-radius: 7px; */
 }
 

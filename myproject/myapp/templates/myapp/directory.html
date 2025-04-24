@@ -24,7 +24,6 @@
   </nav>
 <body>
   {% if request.session.member_id != none %}
-    <div class="dir-page">
       <center>
     {% if Error %}
       <div class="error-msg">
@@ -47,11 +46,13 @@
         </div>
       </div>
     {% endif %}
+  </center>
+<div class="dir-page">
   <br>
+  <center>
   <h2 class="page-titles" id="dir-title">Directory</h2>
-</center>
 <br>
-<center>
+
 <div class="side-by-side">
   <div class="group-content">
     <div class="title-container">
@@ -160,7 +161,8 @@
 
 {% if results %}
 <br><br>
-<div class="group-content" id="search-results">
+<center>
+<div class="group-content-dir" id="search-results">
     <div class="title-container">
       <h2>Search Results</h2>
     </div>
@@ -207,6 +209,7 @@
         {% endif %}
     </table>
   </div>
+  </center>
 {% endif %}
 </center>
 </div>
