@@ -178,21 +178,21 @@ a {
   margin-right: auto;
 }
 
-#search-results {
+/* #search-results {
   max-width: 100vw;
-}
+} */
 
 .group-content-dir {
   padding:10px;
   background-color: rgba(255,255,255,0.7);
   width: fit-content;
   min-width: 700px;
+  max-width: 100vw;
   border: solid;
   border-radius: 10px;
   border-color: transparent;
-  /* margin-left: 50px; */
+  margin-left: auto;
   text-align: center;
-  margin-left: 31%;
   margin-right: auto;
 }
 
@@ -201,6 +201,10 @@ a {
   padding: 10px;
   border-color: white;
   border-radius: 7px;
+}
+
+.group-title-style {
+  font-size: 20px;
 }
 
 
