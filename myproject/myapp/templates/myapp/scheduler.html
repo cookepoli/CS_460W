@@ -65,17 +65,6 @@
   <br>
   <div class="group-content">
     <div class="title-container">
-      <h2>Reset Reservation</h2>
-    </div>
-    <br>
-    <form method="post">
-      {% csrf_token %}
-      <input name="submittype" class="submit-btn" type="submit" value="Reset Process">
-    </form>
-  </div>
-  <br>
-  <div class="group-content">
-    <div class="title-container">
       <h3>Select Day:</h3>
     </div>
     <br>
@@ -93,7 +82,18 @@
       <input class="submit-btn" name="submittype" type="submit" value="Select Day">
     </form>
   </div>
-  <br><br>
+  <br>
+  <div class="group-content">
+    <div class="title-container">
+      <h2 style="font-size: 20px;">Reset Reservation</h2>
+    </div>
+    <br>
+    <form method="post">
+      {% csrf_token %}
+      <input name="submittype" class="submit-btn" type="submit" value="Reset Process">
+    </form>
+  </div>
+  <br>
   {% if request.session.scheduler_stage == 'Type' %}
   <div class="group-content">
     <div class="title-container">
