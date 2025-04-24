@@ -272,6 +272,7 @@ def scheduler_view(request):
                 return render(request, 'myapp/scheduler.html', {'Success': 'Reservation Created!'})
         elif submittype == 'Lookup Reservation':
             res_results = cal.lookupReservation(request.POST.get('res_id'))
+            results = cal.RetrieveDay(request.session['day'])
             if res_results == -1:
                 return render(request, 'myapp/scheduler.html', {'Error':'Invalid input. Try again.'})
             elif res_results:
@@ -281,6 +282,7 @@ def scheduler_view(request):
             else:
                 return render(request, 'myapp/scheduler.html', {'Error':'Reservation does not exist.'})
         elif submittype == 'Delete Reservation':
+            results = cal.RetrieveDay(request.session['day'])
             mem = request.session.get('member_id')
             if mem == 1:
                 mem = President()
@@ -294,6 +296,7 @@ def scheduler_view(request):
             elif ret == 0:
                 return render(request, 'myapp/scheduler.html', {'Error': 'Invalid Input. Try Again'})
         elif submittype == 'Update Reservation':
+            results = cal.RetrieveDay(request.session['day'])
             mem = Member(request.session.get('member_id'))
             if request.session.get('update_type') == 'singles':
                 players = []
