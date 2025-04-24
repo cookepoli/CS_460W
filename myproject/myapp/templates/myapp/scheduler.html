@@ -76,18 +76,6 @@
   <br>
   <div class="group-content">
     <div class="title-container">
-      <h3>Lookup a Reservation</h3>
-    </div>
-    <br>
-    <form method="post">
-      {% csrf_token %}
-      <input name="res_id" class="searchbar" type="number" placeholder="Enter Reservation ID" required>
-      <input name="submittype" class="submit-btn" type="submit" value="Lookup Reservation">
-    </form>
-    </div>
-  <br>
-  <div class="group-content">
-    <div class="title-container">
       <h3>Select Day:</h3>
     </div>
     <br>
@@ -114,7 +102,7 @@
     <br>
     <form method = "post">
       {% csrf_token %}
-      <select name="type">
+      <select name="type" class="dd-list">
         <option class="type" value="singles">Singles</option>
         <option class="type" value="doubles">Doubles</option>
       </select>
@@ -163,11 +151,11 @@
     <form method="post">
       {% csrf_token %}
       Start Time
-      <input type="time" name="start" min="06:00" max="20:00" step="900" required>
+      <input type="time" class="select-time" name="start" min="06:00" max="20:00" step="900" required>
       End Time
-      <input type="time" name="end" min="06:00" max="20:00" step="900" required>
+      <input type="time" class="select-time" name="end" min="06:00" max="20:00" step="900" required>
       Court Number
-      <select name="court">
+      <select name="court" class="dd-list">
         <option class="court" value="1">1</option>
         <option class="court" value="2">2</option>
         <option class="court" value="3">3</option>
@@ -323,6 +311,18 @@
     </div>
     <br>
   {% endif %}
+  <div class="group-content">
+    <div class="title-container">
+      <h3>Lookup a Reservation</h3>
+    </div>
+    <br>
+    <form method="post">
+      {% csrf_token %}
+      <input name="res_id" class="searchbar" type="number" placeholder="Enter Reservation ID" required>
+      <input name="submittype" class="submit-btn" type="submit" value="Lookup Reservation">
+    </form>
+    </div>
+    <br>
   <div class="group-content">
     <div class="title-container">
       <h3>Delete a Reservation</h3>
