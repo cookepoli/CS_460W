@@ -137,9 +137,10 @@
         </select>
         <input name="submittype" class="submit-btn" type="submit" value="Designate Guests">
       </form>
+        {% endif %}
   </div>
   <br>
-    {% endif %}
+    X
   {% endif %}
 
   {% if request.session.scheduler_stage == 'Reserve' %}

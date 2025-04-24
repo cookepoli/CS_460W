@@ -17,10 +17,10 @@ class Authenticator:
                 if self.checkUsername(username, name) and members[i][3] == True:
                     return members[i][0], members[i][1], members[i][2]
 
-            return False
+            return False, False, False
 
         except psycopg2.Error as e:
-           return False
+           return False, False, False
 
 
     def checkUsername(self, username, name):
