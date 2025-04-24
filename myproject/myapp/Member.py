@@ -295,7 +295,7 @@ class Member:
                     conn.close()
                     return 9
 
-            # Guests have another overlapping reservation.
+            # Other players have another overlapping reservation.
             if type(members) == int:
                 members = [members]
             for mem in members:
@@ -311,6 +311,23 @@ class Member:
                         conn.close()
                         return 10
 
+            with conn.cursor() as cur:
+                print(self.memberid)
+                cur.execute("SELECT reservation_id FROM attendees WHERE member_id = (%s)", (self.memberid,))
+                res_ids = cur.fetchall()
+                check = []
+                print(res_ids)
+                for i in range(len(res_ids)):
+                    cur.execute("SELECT start_time, end_time FROM reservation WHERE reservation_id = (%s)",(res_ids[i][0],))
+                    check.append(cur.fetchone())
+            print(check)
+            for i in range(len(check)):
+                if check[i][0] <= start <= check[i][1]:
+                    conn.close()
+                    return 10
+                if check[i][0] <= end <= check[i][1]:
+                    conn.close()
+                    return 10
 
             conn.close()
             return 0

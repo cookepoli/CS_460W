@@ -353,9 +353,10 @@ def scheduler_view(request):
                             reservation_id = court_data['reservation_id']
                             dur = (end_time - start_time)/30
                             typ = court_data['type']
-                        #if start_time <= current_time <= end_time:
-                        #    reservation_id = court_data['reservation_id']
-                        #    break
+                        if start_time <= current_time <= end_time:
+                            reservation_id = court_data['reservation_id']
+                            typ = court_data['type']
+                            break
                 row['courts'].append({'court': court, 'reservation_id': reservation_id, 'duration' : dur, 'type' : typ})
             time_grid.append(row)
 

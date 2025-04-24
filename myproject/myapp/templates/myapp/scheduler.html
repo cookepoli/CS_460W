@@ -223,7 +223,7 @@
              <tr>
                  <td>{{ row.time }}</td>
                  {% for court_data in row.courts %}
-                    <td {% if court_data.reservation_id %} rowspan="{{court_data.duration}}" {% endif %} style="text-align: center; {% if court_data.reservation_id and court_data.type == 'singles'%} background-color: #90EE90; {% endif %} {% if court_data.reservation_id and court_data.type == 'doubles'%} background-color: #ffcccb; {% endif %}">
+                    <td style="text-align: center; {% if court_data.reservation_id and court_data.type == 'singles'%} background-color: #90EE90; {% endif %} {% if court_data.reservation_id and court_data.type == 'doubles'%} background-color: #ffcccb; {% endif %}">
                       {% if court_data.reservation_id %}
                         {{ court_data.reservation_id }}
                       {% endif %}
