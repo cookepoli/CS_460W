@@ -281,7 +281,11 @@ def scheduler_view(request):
             else:
                 return render(request, 'myapp/scheduler.html', {'Error':'Reservation does not exist.'})
         elif submittype == 'Delete Reservation':
-            mem = Member(request.session.get('member_id'))
+            mem = request.session.get('member_id')
+            if mem == 1:
+                mem = President()
+            else:
+                mem = Member(mem)
             ret = mem.deleteReservation(request.POST.get('res_id'))
             if ret == 1:
                 return render(request, 'myapp/scheduler.html', {'Success': 'Reservation deleted!'})

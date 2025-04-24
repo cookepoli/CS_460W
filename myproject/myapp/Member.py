@@ -377,6 +377,33 @@ class President(Member):
         bill = Bill(memberid)
         return bill.getFullBill()
 
+    def deleteReservation(self, res_id: int):
+        try:
+            res_id = int(res_id)
+            with psycopg2.connect(dbname="aced", user="aceduser", password="acedpassword", port="5432") as conn:
+                with conn.cursor() as cur:
+                    cur.execute("SELECT member_id FROM reservation WHERE reservation_ID = (%s)", (res_id,))
+                    member_id = cur.fetchall()[0][0]
+                    # Checking Guestpasses
+                    cur.execute("SELECT member_id FROM attendees WHERE reservation_id = (%s)", (res_id,))
+                    attendees = cur.fetchall()
+                    cur.execute("SELECT guestpass FROM member WHERE member_id = (%s)", (member_id,))
+                    guestpass = cur.fetchone()[0]
+                    cur.execute("SELECT charge_id FROM charges WHERE member_id = (%s) AND description = 'Guest Fee'", (member_id,))
+                    charges = cur.fetchall()
+                    chr_inc = 0
+                    for i in range(len(attendees)):
+                        if attendees[i][0] is None:
+                            guestpass = guestpass+1
+                            cur.execute("DELETE FROM charges WHERE charge_id = %s", (charges[chr_inc][0],))
+                            chr_inc=chr_inc+1
+
+                    cur.execute("UPDATE member SET guestpass = %s WHERE member_id = %s", (guestpass, member_id))
+                    cur.execute("DELETE FROM reservation WHERE reservation_id = %s", (res_id,))
+                return 1
+        except:
+            return 0
+
 class BillingStaff(Member):
     def __init__(self):
         super().__init__(2)
