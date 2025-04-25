@@ -90,6 +90,13 @@ class Member:
                 try:
                     em = Emailer()
                     em.sendReservationConfirmation(res_id[0], email)
+                    if type(members) == int:
+                        members = [members]
+                    for mem in members:
+                        with conn.cursor() as cur:
+                            cur.execute("SELECT email FROM member WHERE member_id = (%s)", (mem,))
+                            email = cur.fetchone()[0]
+                            em.sendReservationConfirmationAdded(res_id[0], email)
                 except:
                    print('yikes')
 
@@ -179,6 +186,8 @@ class Member:
                         cur.execute("SELECT guestfee FROM billing_constants")
                         guestfee = cur.fetchall()[0][0]
 
+                    em = Emailer()
+
                     for player in players:
                         with conn.cursor() as cur:
                             try:
@@ -197,7 +206,13 @@ class Member:
                                     guestpass = cur.fetchone()[0]
                                     cur.execute("UPDATE member SET guestpass = %s WHERE member_id = (%s)", (guestpass-1,self.memberid,))
                                     self.my_bill.createCharge(guestfee, "Guest Fee", "Other")
+                            else:
+                                cur.execute("SELECT email FROM member WHERE member_id = (%s)", (member_id,))
+                                email = cur.fetchone()[0]
+                                em.sendReservationConfirmationAdded(res_id, email)
+
                             cur.execute("INSERT INTO attendees VALUES (%s, %s, %s, %s)", (res_id,player.split(" ")[0],player.split(" ")[1],member_id))
+
 
                     return 1
                 else:

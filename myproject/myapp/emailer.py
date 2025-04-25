@@ -30,6 +30,13 @@ class Emailer:
         self.connect()
         self.sendEmail(text, subject, email)
 
+    def sendReservationConfirmationAdded(self, res_id, email):
+        subject = "ACED Reservation Confirmation"
+        text = ("You were added to a reservation!" + '\n'
+                + "Reservation ID: " + str(res_id) + '\n')
+        self.connect()
+        self.sendEmail(text, subject, email)
+
     def sendBillEmail(self, bill, email):
         subject = "ACED Bill"
         billstr = 'Amount   Date    Description     Type'
