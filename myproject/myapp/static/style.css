@@ -396,6 +396,8 @@ a {
   padding: 5px;
   border-radius: 7px;
   border-color: transparent;
+  margin-bottom: 10px;
+  margin-right: 10px;
 }
 
 .num-bold {
@@ -440,6 +442,8 @@ a {
 
 .table-style {
   background-color: rgba(255,255,255,0.7);
+  padding: 7px;
+  text-align: center;
 }
 
 table {
@@ -469,12 +473,12 @@ td[rowspan]:not(:last-child) {
   width: fit-content;
 }
 
-.dir-header {
+.theader {
   padding: 20px;
 }
 
-.dir-elem {
-  padding: 15px;
+.telem {
+  padding: 8px;
   width: fit-content;
   /* border-radius: 7px; */
 }

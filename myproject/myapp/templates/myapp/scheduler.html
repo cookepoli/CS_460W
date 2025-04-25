@@ -156,7 +156,7 @@
     <div class="res-title-container">
       <h3>Enter Reservation Information</h3>
     </div>
-    <br>
+    <br><br>
     <form method="post">
       {% csrf_token %}
       Start Time
@@ -257,14 +257,14 @@
     <center>
     <table border="1" class="calendar">
       <tr>
-        <th>Day</th>
-        <th>Court Number</th>
-        <th>Start Time</th>
-        <th>End Time</th>
-        <th>Reservation Type</th>
+        <th class="theader">Day</th>
+        <th class="theader">Court Number</th>
+        <th class="theader">Start Time</th>
+        <th class="theader">End Time</th>
+        <th class="theader">Reservation Type</th>
       </tr>
       <tr>
-        <td>
+        <td class="telem">
           {% if res_results.0.0 == 0 %}
             Monday
           {% elif res_results.0.0 == 1%}
@@ -281,22 +281,22 @@
             Sunday
           {% endif %}
         </td>
-        <td>{{ res_results.0.1 }}</td>
-        <td>{{ res_results.0.2 }}</td>
-        <td>{{ res_results.0.3 }}</td>
-        <td>{{ res_results.0.4 }}</td>
+        <td class="telem">{{ res_results.0.1 }}</td>
+        <td class="telem">{{ res_results.0.2 }}</td>
+        <td class="telem">{{ res_results.0.3 }}</td>
+        <td class="telem">{{ res_results.0.4 }}</td>
       </tr>
     </table>
     <h3>Players:</h3>
     <table border="1" class="calendar">
       <tr>
-        <th>First Name</th>
-        <th>Last Name</th>
+        <th class="theader">First Name</th>
+        <th class="theader">Last Name</th>
       </tr>
       {% for attendee in attendees %}
       <tr>
-        <td>{{ attendee.0 }} </td>
-        <td>{{ attendee.1 }} </td>
+        <td class="telem">{{ attendee.0 }} </td>
+        <td class="telem">{{ attendee.1 }} </td>
       </tr>
       {% endfor %}
     </table>
