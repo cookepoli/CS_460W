@@ -26,6 +26,7 @@
 <div class="billing-pg">
 <center>
   {% if Error %}
+  <br>
   <div class="error-msg">
     <div class="title-container-error">
       <h2 class="error-title">Error</h2>
@@ -37,6 +38,7 @@
   {% endif %}
 
   {% if Success %}
+  <br>
   <div class="succ-msg">
     <div class="title-container-succ">
       <h2 class="succ-title">Success</h2>
@@ -175,21 +177,21 @@
           <br>
         <table border = "1" class="table-style">
           <tr>
-            <th>Charge ID</th>
-           <th>Amount</th>
-            <th>Date</th>
-            <th>Description</th>
-            <th>Type</th>
-            <th>Paid Status</th>
+            <th class="theader">Charge ID</th>
+           <th class="theader">Amount</th>
+            <th class="theader">Date</th>
+            <th class="theader">Description</th>
+            <th class="theader">Type</th>
+            <th class="theader">Paid Status</th>
           </tr>
         {% for charge in bill %}
           <tr>
-            <td>{{ charge.0 }}</td>
-            <td>{{ charge.1 }}</td>
-            <td>{{ charge.2 }}</td>
-            <td>{{ charge.3 }}</td>
-            <td>{{ charge.4 }}</td>
-            <td>{{ charge.5 }}</td>
+            <td class="telem">{{ charge.0 }}</td>
+            <td class="telem">{{ charge.1 }}</td>
+            <td class="telem">{{ charge.2 }}</td>
+            <td class="telem">{{ charge.3 }}</td>
+            <td class="telem">{{ charge.4 }}</td>
+            <td class="telem">{{ charge.5 }}</td>
           </tr>
         {% endfor %}
         </table>
@@ -212,18 +214,18 @@
         <br>
       <table border = "1" class="table-style">
         <tr>
-          <th>Amount</th>
-          <th>Date</th>
-          <th>Description</th>
-          <th>Type</th>
+          <th class="theader">Amount</th>
+          <th class="theader">Date</th>
+          <th class="theader">Description</th>
+          <th class="theader">Type</th>
 
         </tr>
       {% for charge in bill %}
         <tr>
-          <td>{{ charge.1 }}</td>
-          <td>{{ charge.2 }}</td>
-          <td>{{ charge.3 }}</td>
-          <td>{{ charge.4 }}</td>
+          <td class="telem">{{ charge.1 }}</td>
+          <td class="telem">{{ charge.2 }}</td>
+          <td class="telem">{{ charge.3 }}</td>
+          <td class="telem">{{ charge.4 }}</td>
 
         </tr>
       {% endfor %}
@@ -253,9 +255,9 @@
       <input name="submittype" class= "submit-btn" type="submit" value="Pay Your Bill">
     </form>
   </div>
+  <br><br>
 </div>
 </center>
 </div>
   {% endif %}
-
 </html>

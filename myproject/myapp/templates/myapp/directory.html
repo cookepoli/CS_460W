@@ -175,40 +175,40 @@
     <table border="1" class="table-style" id="dir-view">
         {% if request.session.member_id != 1 and request.session.member_id != 2 %}
             <tr>
-                <th class="dir-header">First Name</th>
-                <th class="dir-header">Last Name</th>
-                <th class="dir-header">Email</th>
-                <th class="dir-header">Phone Number</th>
+                <th class="theader">First Name</th>
+                <th class="theader">Last Name</th>
+                <th class="theader">Email</th>
+                <th class="theader">Phone Number</th>
             </tr>
             {% for result in results %}
                 <tr>
-                    <td class="dir-elem">{{ result.0 }}</td>
-                    <td class="dir-elem">{{ result.1 }}</td>
-                    <td class="dir-elem">{{ result.2 }}</td>
-                    <td class="dir-elem">{{ result.3 }}</td>
+                    <td class="telem">{{ result.0 }}</td>
+                    <td class="telem">{{ result.1 }}</td>
+                    <td class="telem">{{ result.2 }}</td>
+                    <td class="telem">{{ result.3 }}</td>
                 </tr>
             {% endfor %}
         {% else %}
             <tr>
-                <th class="dir-header">Member ID</th>
-                <th class="dir-header">First Name</th>
-                <th class="dir-header">Last Name</th>
-                <th class="dir-header">Email</th>
-                <th class="dir-header">Phone Number</th>
-                <th class="dir-header">Guest Passes</th>
-                <th class="dir-header">Opt In Status</th>
-                <th class="dir-header">Active Status</th>
+                <th class="theader">Member ID</th>
+                <th class="theader">First Name</th>
+                <th class="theader">Last Name</th>
+                <th class="theader">Email</th>
+                <th class="theader">Phone Number</th>
+                <th class="theader">Guest Passes</th>
+                <th class="theader">Opt In Status</th>
+                <th class="theader">Active Status</th>
             </tr>
             {% for result in results %}
                 <tr>
-                    <td class="dir-elem">{{ result.0 }}</td>
-                    <td class="dir-elem">{{ result.1 }}</td>
-                    <td class="dir-elem">{{ result.2 }}</td>
-                    <td class="dir-elem">{{ result.3 }}</td>
-                    <td class="dir-elem">{{ result.4 }}</td>
-                    <td class="dir-elem">{{ result.5 }}</td>
-                    <td class="dir-elem">{{ result.6 }}</td>
-                    <td class="dir-elem">{{ result.7 }}</td>
+                    <td class="telem">{{ result.0 }}</td>
+                    <td class="telem">{{ result.1 }}</td>
+                    <td class="telem">{{ result.2 }}</td>
+                    <td class="telem">{{ result.3 }}</td>
+                    <td class="telem">{{ result.4 }}</td>
+                    <td class="telem">{{ result.5 }}</td>
+                    <td class="telem">{{ result.6 }}</td>
+                    <td class="telem">{{ result.7 }}</td>
                 </tr>
             {% endfor %}
         {% endif %}
