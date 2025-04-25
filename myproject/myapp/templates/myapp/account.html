@@ -74,12 +74,12 @@
   {% else %}
   <br>
 <h2 class="page-titles">My Account</h2>
-
+<br>
 <form method="post">
   {% csrf_token %}
   <input class="submit-btn" id="fetch-btn" name="submittype" type="submit" value="Fetch Information">
 </form>
-<br>
+<br><br>
 </center>
 <div class="side-by-side">
   <div class="group-content">
@@ -100,6 +100,7 @@
       <input name="submittype" class="submit-btn" type="submit" value="Change First Name">
       </center>
     </form>
+    <br>
   </div>
   <div class="group-content">
     <div class="title-container">
@@ -119,6 +120,7 @@
           <input name="submittype" class="submit-btn" type="submit" value="Change Last Name">
         </center>
       </form>
+      <br>
   </div>
 </div>
 <br>
@@ -141,6 +143,7 @@
       <input name="submittype" class="submit-btn" type="submit" value="Change Email">
     </center>
     </form>
+    <br>
   </div>
   <div class="group-content">
     <div class="title-container">
@@ -160,24 +163,10 @@
       <input name="submittype" class="submit-btn" type="submit" value="Change Phone Number">
     </center>
     </form>
+    <br>
   </div>
   </div>
-  <!-- <div class="group-content">
-    <h4 class="acc-labels" id="password-label">Change Password
-      <span id="pass">
-        <br><br>
-        <form method="post">
-          {% csrf_token %}
-          <center>
-          <input name = "pass" class="searchbar" type="searchbar" placeholder="Enter New Password">
-          <input name = "pass_verify" class="searchbar" type="searchbar" placeholder="Verify New Password">
-          <input name = "submittype" class="submit-btn" type="submit" value = "Change Password">
-        </center>
-        </form>
 
-      </span>
-    </h4>
-  </div> -->
   <br>
   <div class="side-by-side">
     <div class="group-content">
@@ -199,18 +188,19 @@
       </select>
       <input name="submittype" class="submit-btn" type="submit" value="Change Opt-In" required>
     </form>
+    <br>
 </div>
 <div class="group-content">
   <div class="title-container">
-  <h3 class="acc-labels" id="gpass-label">Remaining Guest Passes
-    <span id="gpass" class="acc-result">
+  <h3 class="acc-labels" id="gpass-label">Remaining Guest Passes</h3>
+  </div>
+  <br>
+    <h3 id="gpass" class="acc-result">
     {% if result %}
-      : {{ result.0.5 }}
+      {{ result.0.5 }}
     {% endif %}
-    </span>
-  </h3>
-  </div>
-  </div>
+    </h3>
+</div>
 </div>
 <br>
 <div class="group-content">
@@ -226,8 +216,9 @@
         <input name = "submittype" class="submit-btn" type="submit" value = "Change Password">
       </center>
       </form>
+      <br>
 </div>
-<br>
+<br><br>
   {% endif %}
 {% else %}
 <center>

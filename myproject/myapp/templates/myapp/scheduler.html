@@ -67,10 +67,10 @@
       <div class="title-container">
         <h3>Select Day:</h3>
       </div>
-    <br>
+    <br><br>
     <form method = "post">
       {% csrf_token %}
-      <select name="day" class="dd-list">
+      <select name="day" class="dd-list" id="dd-spacing">
         <option class="day" value="6">Sunday</option>
         <option class="day" value="0">Monday</option>
         <option class="day" value="1">Tuesday</option>
@@ -81,13 +81,14 @@
       </select>
       <input class="submit-btn" name="submittype" type="submit" value="Select Day">
     </form>
+    <br><br>
   </div>
   <!-- <br> -->
 <div class="sched-group-content">
   <div class="title-container">
     <h2>Create Reservation</h2>
   </div>
-  <br>
+  <br><br>
   <div class="res-group-content">
     <div class="res-title-container">
       <h2 style="font-size: 20px;">Reset Reservation</h2>
@@ -97,8 +98,9 @@
       {% csrf_token %}
       <input name="submittype" class="submit-btn" type="submit" value="Reset Process">
     </form>
+    <br>
   </div>
-  <br>
+  <br><br>
   {% if request.session.scheduler_stage == 'Type' %}
   <div class="res-group-content">
     <div class="res-title-container">
@@ -113,6 +115,7 @@
       </select>
       <input name="submittype" class="submit-btn" type="submit" value="Select Type">
     </form>
+    <br>
   </div>
   <br>
   {% endif %}
@@ -324,24 +327,26 @@
     <div class="title-container">
       <h3>Lookup a Reservation</h3>
     </div>
-    <br>
+    <br><br>
     <form method="post">
       {% csrf_token %}
       <input name="res_id" class="searchbar" type="number" placeholder="Enter Reservation ID" required>
       <input name="submittype" class="submit-btn" type="submit" value="Lookup Reservation">
     </form>
+    <br>
     </div>
     <br>
   <div class="sched-group-content">
     <div class="title-container">
       <h3>Delete a Reservation</h3>
     </div>
-    <br>
+    <br><br>
     <form method="post">
       {% csrf_token %}
       <input name="res_id" class="searchbar" type="searchbox" placeholder="Enter Reservation ID">
       <input name="submittype" class="submit-btn" type="submit" value="Delete Reservation">
     </form>
+    <br>
   </div>
   </div>
   <br><br>

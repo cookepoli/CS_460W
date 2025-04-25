@@ -68,11 +68,11 @@
     <div class="title-container">
       <h3>Search for a Bill</h3>
     </div>
-    <br>
+    <br><br>
       <form method = "post">
         {% csrf_token %}
         <input name="mem_id" class="searchbar" placeholder="Enter Member ID" required>
-        <br><br>
+        <br><br><br>
         <input name="submittype" class="submit-btn" type="submit" value="Get Bill">
       </form>
   </div>
@@ -80,16 +80,14 @@
     <div class="title-container">
       <h3>Add a Charge to a Bill</h3>
     </div>
-    <br>
+    <br><br>
     <form method = "post">
       {% csrf_token %}
       <input name="mem_id" class="searchbar" placeholder="Enter Member ID" required>
       <input name="amount" class="searchbar" placeholder="Enter Amount" required>
       <input name="desc" class="searchbar" placeholder="Enter Charge Description" required>
-      <br><br>
-      <div class="btn-padding">
+      <br><br><br>
         <input name="submittype" class="submit-btn" type="submit" value="Create Charge">
-      </div>
       <br><br>
     </form>
   </div>
