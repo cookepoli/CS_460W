@@ -59,7 +59,7 @@
     <div class="title-container">
       <h2 id="search-dir-title">Search Directory</h2>
     </div>
-    <br>
+    <br><br><br>
     <form method="post">
         {% csrf_token %}
         {% if request.session.member_id != 1 and request.session.member_id != 2 %}
@@ -93,13 +93,15 @@
         {% csrf_token %}
         <input class="submit-btn" name="submittype" type="submit" value="View Full Directory">
     </form>
+    <br><br>
   </div>
+    <br><br>
     {% if request.session.member_id == 1 %}
     <div id="register-member" class="group-content">
       <div class="title-container">
         <h2>Register a New Member</h2>
       </div>
-      <br>
+      <br><br>
     <form method="post">
         {% csrf_token %}
         <input name="fname" class="searchbar" placeholder="First Name" required>
@@ -114,19 +116,20 @@
           <option class="attribute" value="True">Yes</option>
           <option class="attribute" value="False">No</option>
         </select>
-        <br><br>
+        <br><br><br>
         <input class="submit-btn" name="submittype" type="submit" value="Create Member" required>
     </form>
-    <br>
+    <br><br>
   </div>
 </div>
+
 <br><br>
 <div class="side-by-side">
   <div id="update-member" class="group-content">
     <div class="title-container">
       <h2>Update a Member</h2>
     </div>
-    <br>
+    <br><br>
         <form method="post" class="dropdown">
             {% csrf_token %}
             <input name="member_id" class="searchbar" placeholder="Member ID" required>
@@ -143,23 +146,24 @@
             <br><br>
             <input class="submit-btn" name="submittype" type="submit" value="Update Member">
         </form>
+        <br>
   </div>
   <div class="group-content" id="deactivate">
     <div class="title-container">
       <h2>Deactivate a Member</h2>
     </div>
-    <br>
+    <br><br>
       <form method="post">
           {% csrf_token %}
           <input name="memid" class="searchbar" placeholder="Member ID" required>
           <br><br>
           <input class="submit-btn" name="submittype" type="submit" value="Deactivate Member">
       </form>
+      <br>
     </div>
 </div>
 
 {% endif %}
-
 
 {% if results %}
 <br><br>
@@ -211,6 +215,7 @@
     </table>
   </div>
 {% endif %}
+
 </center>
 </div>
 
