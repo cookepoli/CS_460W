@@ -9,21 +9,19 @@
   <div class="add-name">
     <h3 class="member-name">Welcome {{ request.session.firstname }} {{ request.session.lastname }}!</h3>
   </div>
-  <div class="nav-style">
-    <nav class="navbar">
-      <a href="../scheduler/" class="nav-elem">Court Scheduler</a>
-      <a href="../billing/" class="nav-elem">Billing</a>
-      <a href="../directory/" class="nav-elem">Member Directory</a>
-      <a href="../account/" class="nav-elem">
-          {% if request.session.member_id == 1 or request.session.member_id == 2 %}
-              Admin Dashboard
-          {% else %}
-          My Account
-          {% endif %}
-      </a>
-      <a href="../logout/" class="nav-elem">Log Out</a>
-    </nav>
-    </div>
+  <nav class="navbar">
+    <a href="../scheduler/" class="nav-elem">Court Scheduler</a>
+    <a href="../billing/" class="nav-elem">Billing</a>
+    <a href="../directory/" class="nav-elem">Member Directory</a>
+    <a href="../account/" class="nav-elem">
+        {% if request.session.member_id == 1 or request.session.member_id == 2 %}
+            Admin Dashboard
+        {% else %}
+        My Account
+        {% endif %}
+    </a>
+    <a href="../logout/" class="nav-elem">Log Out</a>
+  </nav>
   {% if request.session.member_id != none %}
 <center>
 <div class="scheduler-bg">
@@ -65,7 +63,7 @@
   <br>
 <div class="res-container">
   <div class="res-left">
-    <div class="group-content">
+    <div class="sched-group-content">
       <div class="title-container">
         <h3>Select Day:</h3>
       </div>
@@ -84,10 +82,14 @@
       <input class="submit-btn" name="submittype" type="submit" value="Select Day">
     </form>
   </div>
+  <!-- <br> -->
+<div class="sched-group-content">
+  <div class="title-container">
+    <h2>Create Reservation</h2>
+  </div>
   <br>
-<div class="group-content">
   <div class="res-group-content">
-    <div class="title-container">
+    <div class="res-title-container">
       <h2 style="font-size: 20px;">Reset Reservation</h2>
     </div>
     <br>
@@ -99,7 +101,7 @@
   <br>
   {% if request.session.scheduler_stage == 'Type' %}
   <div class="res-group-content">
-    <div class="title-container">
+    <div class="res-title-container">
       <h3>Select Reservation Type:</h3>
     </div>
     <br>
@@ -116,7 +118,7 @@
   {% endif %}
   {% if request.session.scheduler_stage == 'Guests' %}
   <div class="res-group-content">
-    <div class="title-container">
+    <div class="res-title-container">
       <h3>Select Number of Non-Member Guests</h3>
     </div>
     <br>
@@ -147,7 +149,7 @@
 
   {% if request.session.scheduler_stage == 'Reserve' %}
   <div class="res-group-content">
-    <div class="title-container">
+    <div class="res-title-container">
       <h3>Enter Reservation Information</h3>
     </div>
     <br>
@@ -243,7 +245,7 @@
   <br>
   <div class="res-right">
   {% if res_results %}
-  <div class="group-content">
+  <div class="sched-group-content">
     <div class="title-container">
       <h2>Reservation:</h2>
     </div>
@@ -297,7 +299,7 @@
     </center>
   </div>
   <br>
-    <div class="group-content">
+    <div class="sched-group-content">
       <div class="title-container">
         <h3>Update This Reservation</h3>
       </div>
@@ -318,7 +320,7 @@
     <br>
   {% endif %}
 
-  <div class="group-content">
+  <div class="sched-group-content">
     <div class="title-container">
       <h3>Lookup a Reservation</h3>
     </div>
@@ -330,7 +332,7 @@
     </form>
     </div>
     <br>
-  <div class="group-content">
+  <div class="sched-group-content">
     <div class="title-container">
       <h3>Delete a Reservation</h3>
     </div>
