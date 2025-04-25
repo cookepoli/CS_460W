@@ -452,6 +452,7 @@ def account_view(request):
         if request.POST.get('submittype') == 'Send Email':
             dir = Directory()
             emails = dir.getEmails()
+            print(emails)
             email_success = []
             em = Emailer()
             for email in emails:
@@ -459,6 +460,7 @@ def account_view(request):
                     em.connect()
                     em.sendEmail(request.POST.get('emailbody'), request.POST.get('subject'), email[0])
                     email_success.append(email[0])
+                    print(email_success)
                 except:
                     pass
             return render(request, 'myapp/account.html', {'Success': 'Announcement sent!'})

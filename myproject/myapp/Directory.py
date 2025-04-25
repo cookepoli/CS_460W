@@ -52,5 +52,5 @@ class Directory():
     def getEmails(self):
         with psycopg2.connect(dbname="aced", user="aceduser", password="acedpassword", port="5432") as conn:
             with conn.cursor() as cur:
-                cur.execute("SELECT email FROM member")
+                cur.execute("SELECT email FROM member WHERE active = True")
                 return cur.fetchall()
