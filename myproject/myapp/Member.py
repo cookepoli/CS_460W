@@ -359,10 +359,15 @@ class President(Member):
         try:
             with psycopg2.connect(dbname="aced", user="aceduser", password="acedpassword", port="5432") as conn:
                 with conn.cursor() as cur:
-                    if attribute == 'password':
-                        cur.execute("UPDATE member SET password = crypt(%s, gen_salt('md5')) WHERE member_id = (%s)", (value,member_id))
+                    cur.execute("SELECT member_id FROM member")
+                    check = cur.fetchall()
+                    if (int(member_id),) in check:
+                        if attribute == 'password':
+                            cur.execute("UPDATE member SET password = crypt(%s, gen_salt('md5')) WHERE member_id = (%s)", (value,member_id))
+                        else:
+                            cur.execute(sql.SQL("UPDATE member SET {attr} = %s WHERE member_id = %s").format(attr = sql.Identifier(attribute)),(value,member_id))
                     else:
-                        cur.execute(sql.SQL("UPDATE member SET {attr} = %s WHERE member_id = %s").format(attr = sql.Identifier(attribute)),(value,member_id))
+                        return -2
             return 0
         except psycopg2.Error as e:
             return -1
@@ -379,8 +384,13 @@ class President(Member):
                 try:
                     with psycopg2.connect(dbname="aced", user="aceduser", password="acedpassword", port="5432") as conn:
                         with conn.cursor() as cur:
-                            cur.execute("UPDATE member SET active = FALSE WHERE member_id = %s", (memberid,))
-                    return 0
+                            cur.execute("SELECT member_id FROM member")
+                            check = cur.fetchall()
+                            if (int(memberid),) in check:
+                                cur.execute("UPDATE member SET active = FALSE WHERE member_id = %s", (memberid,))
+                                return 0
+                            else:
+                                return -3
                 except psycopg2.Error as e:
                     return -1
         except:

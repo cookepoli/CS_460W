@@ -37,6 +37,8 @@ def directory_view(request):
                 return render(request, 'myapp/directory.html', {'Success': 'Member deactivated!'})
             elif ret == -2:
                 return render(request, 'myapp/directory.html', {'Error': 'You cannot deactivate the President or Billing Staff accounts.'})
+            elif ret == -3:
+                return render(request, 'myapp/directory.html', {'Error': 'Member does not exist.'})
             else:
                 return render(request, 'myapp/directory.html', {'Error': 'Invalid Input'})
 
@@ -45,6 +47,8 @@ def directory_view(request):
             ret = mem.updateInformation(request.POST.get('member_id'), request.POST.get('attribute'), request.POST.get('value'))
             if ret == 0:
                 return render(request, 'myapp/directory.html', {'Success': 'Member updated!'})
+            elif ret == -2:
+                return render(request, 'myapp/directory.html', {'Error': 'Member does not exist.'})
             else:
                 return render(request, 'myapp/directory.html', {'Error': 'Invalid Input'})
 
