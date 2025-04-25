@@ -138,6 +138,7 @@
     </form>
     <br>
   {% if billing_scheme %}
+    <center>
   <table border="1" class="table-style">
     <tr>
       <th>Guest Fee</th>
@@ -148,6 +149,8 @@
       <td>{{billing_scheme.0.1}}</td>
     </tr>
   </table>
+      </center>
+    <br>
   {% endif %}
   <form method="post">
     {% csrf_token %}
@@ -177,6 +180,7 @@
             <th>Date</th>
             <th>Description</th>
             <th>Type</th>
+            <th>Paid Status</th>
           </tr>
         {% for charge in bill %}
           <tr>
@@ -185,6 +189,7 @@
             <td>{{ charge.2 }}</td>
             <td>{{ charge.3 }}</td>
             <td>{{ charge.4 }}</td>
+            <td>{{ charge.5 }}</td>
           </tr>
         {% endfor %}
         </table>
@@ -211,6 +216,7 @@
           <th>Date</th>
           <th>Description</th>
           <th>Type</th>
+
         </tr>
       {% for charge in bill %}
         <tr>
@@ -218,6 +224,7 @@
           <td>{{ charge.2 }}</td>
           <td>{{ charge.3 }}</td>
           <td>{{ charge.4 }}</td>
+
         </tr>
       {% endfor %}
       </table>
