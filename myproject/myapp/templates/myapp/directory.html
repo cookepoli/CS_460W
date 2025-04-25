@@ -23,6 +23,8 @@
     <a href="../logout/" class="nav-elem">Log Out</a>
   </nav>
 <body>
+  <div class="dir-page">
+    <br>
   {% if request.session.member_id != none %}
       <center>
     {% if Error %}
@@ -47,7 +49,6 @@
       </div>
     {% endif %}
   </center>
-<div class="dir-page">
   <br>
   <center>
   <h2 class="page-titles" id="dir-title">Directory</h2>

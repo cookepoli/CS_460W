@@ -63,10 +63,12 @@
   </div>
   </div>
   <br>
-  <div class="group-content">
-    <div class="title-container">
-      <h3>Select Day:</h3>
-    </div>
+<div class="res-container">
+  <div class="res-left">
+    <div class="group-content">
+      <div class="title-container">
+        <h3>Select Day:</h3>
+      </div>
     <br>
     <form method = "post">
       {% csrf_token %}
@@ -83,7 +85,8 @@
     </form>
   </div>
   <br>
-  <div class="group-content">
+<div class="group-content">
+  <div class="res-group-content">
     <div class="title-container">
       <h2 style="font-size: 20px;">Reset Reservation</h2>
     </div>
@@ -95,7 +98,7 @@
   </div>
   <br>
   {% if request.session.scheduler_stage == 'Type' %}
-  <div class="group-content">
+  <div class="res-group-content">
     <div class="title-container">
       <h3>Select Reservation Type:</h3>
     </div>
@@ -112,7 +115,7 @@
   <br>
   {% endif %}
   {% if request.session.scheduler_stage == 'Guests' %}
-  <div class="group-content">
+  <div class="res-group-content">
     <div class="title-container">
       <h3>Select Number of Non-Member Guests</h3>
     </div>
@@ -143,7 +146,7 @@
   {% endif %}
 
   {% if request.session.scheduler_stage == 'Reserve' %}
-  <div class="group-content">
+  <div class="res-group-content">
     <div class="title-container">
       <h3>Enter Reservation Information</h3>
     </div>
@@ -196,13 +199,14 @@
           <input name="guest2" class="searchbar" type="searchbox" placeholder="Enter Guest Name" required>
           <input name="guest3" class="searchbar" type="searchbox" placeholder="Enter Guest Name" required>
         {% endif %}
-      {% endif %}
-      <input name="submittype" class="submit-btn" type="submit" value="Reserve">
-    </form>
-    </div>
-    <br>
-  {% endif %}
-
+        {% endif %}
+        <input name="submittype" class="submit-btn" type="submit" value="Reserve">
+      </form>
+      </div>
+      <br>
+    {% endif %}
+  </div>
+<br>
   {% if time_grid %}
   <div class="group-content">
     <div class="title-container">
@@ -235,7 +239,9 @@
     </table>
     </div>
   {% endif %}
+  </div>
   <br>
+  <div class="res-right">
   {% if res_results %}
   <div class="group-content">
     <div class="title-container">
@@ -311,6 +317,7 @@
     </div>
     <br>
   {% endif %}
+
   <div class="group-content">
     <div class="title-container">
       <h3>Lookup a Reservation</h3>
@@ -334,7 +341,9 @@
       <input name="submittype" class="submit-btn" type="submit" value="Delete Reservation">
     </form>
   </div>
+  </div>
   <br><br>
+</div>
 </div>
 
 

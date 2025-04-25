@@ -27,6 +27,7 @@
   {% if request.session.member_id != none %}
 <div class="acc-page">
 <center>
+  <br>
   {% if Error %}
   <div class="error-msg">
     <div class="title-container-error">
@@ -37,7 +38,6 @@
     </div>
   </div>
   {% endif %}
-
   {% if Success %}
   <div class="succ-msg">
     <div class="title-container-succ">
@@ -52,6 +52,7 @@
   {% if request.session.member_id == 1 or request.session.member_id == 2 %}
   <br>
   <h2 class="page-titles">Admin Dashboard</h2>
+  <br>
   <div class="group-content">
     <div class="title-container">
       <h3>Send an Email Announcement</h3>

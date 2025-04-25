@@ -315,7 +315,7 @@ a {
   border-radius: 7px;
 }
 
-/* .res-container {
+.res-container {
   position: relative;
   display: flex;
   flex-direction: row;
@@ -328,7 +328,6 @@ a {
 
 .res-left {
   position: relative;
-  background-color: rgba(255, 0, 0, 0.9);
   align-items: flex-start;
   display: flex;
   flex-direction: column;
@@ -346,7 +345,6 @@ a {
 }
 
 .res-right {
-  background-color: rgba(0, 0, 255, 0.9);
   align-items: flex-end;
   display: flex;
   flex-direction: column;
@@ -358,7 +356,7 @@ a {
 #res-table {
   flex-basis: 100%;
   width: 100%;
-} */
+}
 
 .select-time {
   padding: 5px;
