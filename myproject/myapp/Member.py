@@ -191,7 +191,7 @@ class Member:
                     for player in players:
                         with conn.cursor() as cur:
                             try:
-                                cur.execute("SELECT member_id FROM member WHERE firstname = %s AND lastname = %s",(player.split(" ")[0],player.split(" ")[1]))
+                                cur.execute("SELECT member_id FROM member WHERE firstname = %s AND lastname = %s and active = true",(player.split(" ")[0],player.split(" ")[1]))
                                 member_id = cur.fetchone()[0]
                             except:
                                 member_id = None
