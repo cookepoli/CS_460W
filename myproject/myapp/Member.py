@@ -360,15 +360,15 @@ class President(Member):
         return valid
 
     def createMember(self, firstname: str, lastname: str, email: str, phonenum: str, optin: bool, pw: str):
-        #try:
+        try:
             with psycopg2.connect(dbname="aced", user="aceduser", password="acedpassword", port="5432") as conn:
                 with conn.cursor() as cur:
                     cur.execute("INSERT INTO member (firstname, lastname, email, phonenum, optin, password) "
                                 "VALUES (%s, %s, %s, %s, %s, crypt(%s, gen_salt('md5')))",
                                 (firstname, lastname, email, phonenum, optin, pw))
             return 0
-        #except psycopg2.Error:
-            #return -1
+        except psycopg2.Error:
+            return -1
 
     def updateInformation(self, member_id: int, attribute: str, value: str):
         try:
