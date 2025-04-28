@@ -55,6 +55,7 @@ def addYearlyFee():
                         print(bill.getBill())
                         try:
                             em.sendBillEmail(bill.getBill(), email)
+                            pass
                         except:
                             pass
         return 0
@@ -120,13 +121,13 @@ def refreshReservation():
             cur.execute("DELETE FROM reservation WHERE res_day = %s", (day,))
 
 def resetGuestPass():
-    if datetime.datetime.now.day() == 1:
+    if datetime.datetime.today().weekday() == 1:
         with psycopg2.connect(dbname="aced", user="aceduser", password="acedpassword", port="5432") as conn:
             with conn.cursor() as cur:
                 cur.execute("UPDATE member SET guastpass = 4")
 
 def backupDB():
-    if datetime.datetime.now.day() == 4:
+    if datetime.datetime.today.weekday() == 4:
         with psycopg2.connect(dbname="aced", user="aceduser", password="acedpassword", port="5432") as conn:
             with conn.cursor() as cur:
                 cur.execute("SELECT * FROM member")
@@ -186,12 +187,12 @@ def loadBackup():
                             (bill['0'], bill['1']))
 
 
-schedule.every().day.at("05:30").do(lambda: addYearlyFee())
-schedule.every().day.at("05:30").do(lambda: addLateFee())
-schedule.every().day.at("22:00").do(lambda: refreshReservation())
-schedule.every().Monday.at("22:00").do(lambda: backupDB())
+#schedule.every().day.at("05:30").do(lambda: addYearlyFee())
+#schedule.every().day.at("05:30").do(lambda: addLateFee())
+#schedule.every().day.at("22:00").do(lambda: refreshReservation())
+#schedule.every().Monday.at("22:00").do(lambda: backupDB())
 
 
 
-stop_run_continuously = run_continouously(43200)
+#stop_run_continuously = run_continouously(43200)
 
